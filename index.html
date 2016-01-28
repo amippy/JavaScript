@@ -7,13 +7,12 @@
   <body>
     <script src="myscript.js"></script>
     <script>
-      var i = 0;
-      do {
-        cosole.log(i);
-        i++;
-      } while (i <10 );
-
-      // 条件判定が先に行われるか行われないかの違い
+      for (var i = 0; i < 10; i++) {
+        if (i === 5){
+          break;
+        }
+        console.log(i);
+      }
 
     </script>
   </body>
