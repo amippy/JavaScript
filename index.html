@@ -8,11 +8,15 @@
     <script src="myscript.js"></script>
     <script>
 
-      //      var s = new String("Ami");
-      var s = "Ami";
-      console.log(s.length);
-      console.log(s.replace("A","a"));
-      console.log(s.substr(1,2));
+      var a = new Array(10,20,30);
+      //var a = [10,20,30];
+      console.log(a.length);
+
+      a.push(20);
+      a.unshift(1000);
+      a.splice(1,2,300,100);  //添字１の位置から２個削除して、その同じ位置から300と100を追加する
+      console.log(a);
+
 
 
     </script>
