@@ -3,18 +3,19 @@
   <meta charset = "utf-8"/>
  </head>
 <body>
-<pre>
-  <script type="text/javascript">
 
-  function btn_onclick(){
-	  window.alert('ボタンがクリックされました。');
-  }
+<script type="text/javascript">
 
+window.onload = function(){
 
-  </script>
-  <input type="button" value="ダイアログ表示" onclick="btn_onclick()" />
+	document.getElementById('btn').onclick = function(){
+		window.alert('ボタンがクリックされました');
+	};
+};
+
+</script>
+  <input id="btn" type="button" value="ヤッホーい" />
 <noscript>JavaScriptが使えません</noscript>
-</pre>
 </body>
 </html>
 
