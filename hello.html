@@ -1,29 +1,25 @@
 <html>
  <head>
+ 
   <meta charset = "utf-8"/>
  </head>
 <body oncontextmenu="return false;">
 
+<img src="sample.jpg" id="dog"/>
 <script type="text/javascript">
 
-window.onload = function(){
+function changeStyle(elem, color){
+	elem.style.background = color;
+}
 
-	document.getElementById('btn').onclick = function(){
-		window.alert('ボタンがクリックされました');
-	};
-};
+
 
 </script>
-
-<form onsubmit="return window.confirm('ページを送信しても良いですか？');">
-  <input type="submit" value="送信" />
-</form>
-
+<div onmouseover = "changeStyle(this, 'Pink')"
+     onmouseout= "changeStyle(this, 'Green')">
+     ばるちゃん！！</div>
 
 
-
-
-  <input id="btn" type="button" value="ヤッホーい" />
 <noscript>JavaScriptが使えません</noscript>
 </body>
 </html>
