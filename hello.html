@@ -5,12 +5,28 @@
  </head>
 <body oncontextmenu="return false;">
 
-<img src="sample.jpg" id="dog"/>
+<img src="sample.jpg" id="dog" onClick="quakeImage()"/>
 <script type="text/javascript">
 
 function changeStyle(elem, color){
 	elem.style.background = color;
 }
+
+-->
+itv = 10;
+s = 1;
+h = 150;
+function init(){
+	y = document.body.clientHeight;
+	setTimeout('rollText()');
+}
+function rollText(){
+	y -= s;
+	document.all["ID"].style.top = y;
+	if(y > h)SetTimeout('rollText()',itv);
+}
+
+-->
 
 
 
