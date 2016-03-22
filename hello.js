@@ -1,13 +1,14 @@
-document.writeln('Muscle,World');
-var msg = 'こんにちは';
+document.writeln('Hey');
+
+var msg = "yahoo!hehe";
 document.writeln(msg);
 
-var array = ['Ami','Ykevi','Valt']
-document.writeln(array[1]);
+var array = ['ami','amigo','amippy'];
+document.writeln(array[2]);
 
-var obj = {x:1, y:2, z:3};
-document.writeln(obj.x);
-
-var hoge = ['a','b','c'];
-var ho = hoge; 
-document.writeln(ho);
+var x = 20;
+if(x >= 10){
+  document.writeln('変数xは１０以上です。');
+}else{
+  document.writeln('変数xは１０以下です。')
+}
