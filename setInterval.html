@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>setInterval</title>
+</head>
+<body>
+
+  <input type="button" value="タイマーを止める" onclick="clearInterval(timer)"/>
+  <div id="result"></div>
+
+  <script type="text/javascript">
+  var timer;
+  window.onload = function(){
+    timer = window.setInterval(
+      function(){
+        var date = new Date();
+        document.getElementById('result').innerHTML = date.toLocaleTimeString();
+      },
+      1000
+    );
+  };
+  </script>
+
+
+</body>
+</html>
