@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>stop watch </title>
+  <style>
+  body{
+    background-color: #e0e0e0;
+    font-family: Arial. sans-serif;
+    text-align: center;
+  }
+  #timerText{
+    font-size: 128px;
+    color: #00aaff;
+    margin: 40px auto;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    color: #00aaff;
+  }
+  .btn{
+    display: inline-block;
+    width: 100px;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 0 4px 0 #0088cc;
+    color: #fff;
+    background: pink;
+    cursor: pointer;
+  }
+  .btn + .btn{              /*stop&resetのみにスタイルが適用される*/
+    margin-left: 10px;
+  }
+
+  .active{
+    opacity: 1.0;
+  }
+  .inactive{
+    opacity: 0.5;
+  }
+  </style>
+</head>
+<body>
+  <div id="timerText">0.00</div>
+  <div id="start">START</div>
+  <div id="stop">STOP</div>
+  <div id="reset">RESET</div>
+  <script>
+  (function(){
+    'use strict';
+
+    var startTime; //タイマー押したときの時刻表示
+    var timerId;  //たいまーを動かす
+    var elapsedTime = 0; //どれくらいタイマーは進んでいるのか
+    var isRunning = false;
+
+    var startButton = document.getElementById('start');
+    var stopButton = document.getElementById('stop');
+    var resetButton = document.getElementById('reset');
+    var timerText = document.getElementById('timerText');
+
+    function setButtonState(start,stop,reset){
+      startButton.className = start ? 'btn active' : 'btn inactive';
+      stopButton.className = stop ? 'btn active' : 'btn inactive';
+      resetButton.className = reset ? 'btn active' : 'btn inactive';
+    }
+
+    setButtonState(true,false,false);
+
+    startButton.addEventListener('click',function(){
+      if(isRunning)return;
+      isRunning = true;
+      startTime = Date.now();
+      updateTimerText();
+      setButtonState(false,true,false);
+    });
+
+    stopButton.addEventListener('click',function(){
+      if(!isRunning)return;
+      isRunning = false;
+      elapsedTime += Date.now() - startTime;
+      clearTimeout(timerId);
+      setButtonState(true,false,true);
+    });
+
+
+
+    resetButton.addEventListener('click',function(){
+      if(isRunning)return;
+      timerText.innerHTML = '0.00';
+      elapsedTime = 0;
+      setButtonState(false,false,true);
+      setButtonState('true','false','false');
+    });
+
+    function updateTimerText(){
+      timerId = setTimeout(function(){
+        var t = Date.now() - startTime + elapsedTime;  //今の時間からstartTimeをひく
+        timerText.innerHTML = (t/1000).toFixed(2);
+        updateTimerText();  //updateTimerTextを繰り返す
+      },10);  //１０ミリ秒間隔
+    }
+
+
+  })();
+  </script>
+</body>
+</html>
